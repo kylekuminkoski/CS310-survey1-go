@@ -1,4 +1,5 @@
-//Co-authors: Kyle Kuminkoski and Grant Stumpf
+// Co-authors: Kyle Kuminkoski and Grant Stumpf
+// I confirm that all work follows the academic integrity policy.
 
 package main
 
@@ -13,7 +14,7 @@ func main() {
 	fmt.Print("Enter a value for k: ")
 	fmt.Scan(&k)
 	fmt.Print("Hypercake value: ")
-	fmt.Println(hypercake(n, k, factorialMap))
+	fmt.Println(hypercake(0, 2, factorialMap))
 }
 
 func factorial(n int, factorialMap map[int]int) int {
@@ -40,6 +41,11 @@ func combinations(n int, r int, factorialMap map[int]int) int {
 
 func hypercake(n int, k int, factorialMap map[int]int) int {
 	var value = 0
+
+	if n == 0 {
+		return 1
+	}
+
 	for k >= 0 {
 		value = value + combinations(n, k, factorialMap)
 		k = k - 1
